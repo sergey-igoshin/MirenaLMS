@@ -10,7 +10,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">        
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown {% if request.resolver_match.view_name == 'mainapp:mainapp.views.NewsPageView' %}active{% endif %}" >
           <a class="nav-link dropdown-toggle" href="#" id="ddProfile" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Профиль
