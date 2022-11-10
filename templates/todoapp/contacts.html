@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_todo.html' %}
 {% load library_filter %}
 
 {% block content %}
@@ -42,7 +42,7 @@
         </ul>
         <ul class="list-unstyled">
           <li>Email</li>
-          <li><strong>{{ 'geeklab@spb.ru'|email_to_link }}</strong></li>
+          <li><strong>{{ 'geeklab@spb.ru'|email_to_link2 }}</strong></li>
         </ul>
         <ul class="list-unstyled">
           <li>Адрес</li>

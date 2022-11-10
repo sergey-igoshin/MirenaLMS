@@ -11,3 +11,7 @@ class TodoPageView(TemplateView):
         context["news_title"] = "Громкий новостной заголовок"
         context["news_preview"] = "Предварительное описание, которое заинтересует каждого"
         return context
+
+
+class ContactsPageView(TemplateView):
+    template_name = "todoapp/contacts.html"
