@@ -18,4 +18,8 @@ class ContactsPageView(TemplateView):
 
 
 class LoginPageView(TemplateView):
-    template_name = "mainapp/login.html"
+    template_name = "todoapp/login.html"
+
+
+class DocSitePageView(TemplateView):
+    template_name = "todoapp/doc_site.html"

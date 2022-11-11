@@ -8,5 +8,6 @@ app_name = TodoappConfig.name
 urlpatterns = [
     path("", views.TodoPageView.as_view(), name="todo_page"),
     path("contacts/", views.ContactsPageView.as_view(), name="contacts"),
+    path("doc_site/", views.DocSitePageView.as_view(), name="doc_site"),
     path("login/", views.LoginPageView.as_view(), name="login"),
 ]
