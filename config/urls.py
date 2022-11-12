@@ -8,6 +8,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", RedirectView.as_view(url="mainapp/")),
     path("mainapp/", include("mainapp.urls", namespace="mainapp")),
+    path("authapp/", include("authapp.urls", namespace="authapp")),
     path("todoapp/", include("todoapp.urls", namespace="todoapp")),
 ]
 
