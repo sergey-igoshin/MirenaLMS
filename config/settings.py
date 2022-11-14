@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "mainapp",
     "todoapp",
     "authapp",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,5 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 SOCIAL_AUTH_GITHUB_KEY = "c4e1986f5dc86fbf6749"
 SOCIAL_AUTH_GITHUB_SECRET = "3527385fee15f6d218fad13969ae26b3822ef7a8"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
