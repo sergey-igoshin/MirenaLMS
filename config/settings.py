@@ -98,6 +98,7 @@ AUTH_USER_MODEL = "authapp.CustomUser"
 
 LOGIN_REDIRECT_URL = "mainapp:main_page"
 LOGOUT_REDIRECT_URL = "mainapp:main_page"
+# LOGOUT_REDIRECT_URL = "authapp:login"
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
