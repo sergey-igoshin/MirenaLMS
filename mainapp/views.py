@@ -29,11 +29,11 @@ class NewsDetailView(DetailView):
     model = mainapp_models.News
 
 
-# class NewsUpdateView(PermissionRequiredMixin, UpdateView):
-#     model = mainapp_models.News
-#     fields = "__all__"
-#     success_url = reverse_lazy("mainapp:news")
-#     permission_required = ("mainapp.change_news",)
+class NewsUpdateView(PermissionRequiredMixin, UpdateView):
+    model = mainapp_models.News
+    fields = "__all__"
+    success_url = reverse_lazy("mainapp:news")
+    permission_required = ("mainapp.change_news",)
 
 
 class NewsDeleteView(PermissionRequiredMixin, DeleteView):
@@ -68,39 +68,3 @@ class ContactsPageView(TemplateView):
 
 class DocSitePageView(TemplateView):
     template_name = "mainapp/doc_site.html"
-
-
-class NewsUpdateView(PermissionRequiredMixin, UpdateView):
-    model = mainapp_models.News
-    fields = "__all__"
-    success_url = reverse_lazy("mainapp:news")
-    permission_required = ("mainapp.change_news",)
-
-
-# class NewsUpdateView(LoginRequiredMixin, TemplateView):
-#     template_name = "mainapp/news_form.html"
-#     login_url = reverse_lazy("authapp:login")
-
-
-#     def post(self, request, *args, **kwargs):
-#         try:
-#             if request.POST.get("title"):
-#                 print(request.POST.get("title"))
-#                 # request.object.title = request.POST.get("title")
-#             # if request.POST.get("first_name"):
-#             #     request.user.first_name = request.POST.get("first_name")
-#             # if request.POST.get("last_name"):
-#             #     request.user.last_name = request.POST.get("last_name")
-#             # if request.POST.get("age"):
-#             #     request.user.age = request.POST.get("age")
-#             # if request.POST.get("email"):
-#             #     request.user.email = request.POST.get("email")
-
-#             messages.add_message(request, messages.INFO, _("Saved!"))
-#         except Exception as exp:
-#             messages.add_message(
-#                 request,
-#                 messages.WARNING,
-#                 mark_safe(f"Something goes worng:<br>{exp}"),
-#             )
-#         return HttpResponseRedirect(reverse_lazy("mainapp:news"))
