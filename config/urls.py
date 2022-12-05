@@ -10,7 +10,8 @@ urlpatterns = [
     path("social_auth/", include("social_django.urls", namespace="social")),
     path("mainapp/", include("mainapp.urls", namespace="mainapp")),
     path("authapp/", include("authapp.urls", namespace="authapp")),
-    path("todoapp/", include("todoapp.urls", namespace="todoapp")),
+    path("settings/", include("settingapp.urls", namespace="settingapp")),  # "Настройки"
+    path("extracts/", include("extractapp.urls", namespace="extractapp")),  # "Выписки"
 ]
 
 if settings.DEBUG:

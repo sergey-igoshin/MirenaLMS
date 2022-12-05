@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-scroller page-extract">
+  <div class="page-wrapper" role="main">
+    <div class="page-two-column counterparty-dictionary">
+      <div class="panel panel-page page-component page-left-column">
+        <div class="counterparties-list-page rur-сounterparty-page">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="filter-panel">
+                <div class="row display-table">
+                  <div class="col-xs-5 table-cell">
+                    <div class="filter-panel-text-search">
+                      <div class="search-icon-wrapper btn-square">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16" class="svg-icon " name="SearchIcon16" focusable="false" aria-hidden="true">
+                          <path class="primary-fill" fill-rule="evenodd" d="M7.5 1.5a6 6 0 103.476 10.89l1.817 1.817a1 1 0 001.414-1.414l-1.816-1.816A6 6 0 007.5 1.5zm-4 6a4 4 0 118 0 4 4 0 01-8 0z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                      <input placeholder="Поиск контрагента по реквизитам или ИНН" class="form-control" type="text" value="">
+                    </div>
+                  </div>
+                  <div class="col-xs-7 table-cell">
+                    <button id="download" type="button" class="btn btn-success btn-md margin-left" style="float: right;">Загрузить выписку</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="table table-hover table-vertical-middle counterparties-list">
+              <thead role="rowgroup">
+                <tr>
+                  <th title="" class="col-context-date">
+                    <span class=" label" >Дата
+                      <span class="table-sorting">
+                        <div class="caret-"></div>
+                      </span>
+                    </span>
+                  </th>
+                  <th title="" class="col-name-and-account-number">
+                    <span class=" label">Наименование и назначение платежа
+                      <span class="table-sorting">
+                        <div class="caret-"></div>
+                      </span>
+                    </span>
+                  </th>
+                  <th title="" class="col-status">
+                    <span class="label">Статус
+                      <span class="table-sorting">
+                        <div class="caret-"></div>
+                      </span>
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody role="rowgroup">
+
+                {% for item in object_list %}               
+                
+                {% if not item.status %}
+                {% include 'includes/extracts/extract_written_off.html' %}
+                {% else %}
+                {% include 'includes/extracts/extract_received.html' %}
+                {% endif %}                
+
+                {% endfor %}              
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+
+{% block modal_delete %}
+<div id="modal-delete" class="modal-level-1 hide-modal">
+  <div class="fade modal-backdrop in"></div>
+  <div id="Master_Import_Modal" role="dialog" tabindex="-1" class="fade import-modal modal-lg modal_192 in modal" style="display: block; padding-left: 17px;">
+    <form action="" method="post">
+      {% csrf_token %}      
+      <div class="import-modal modal-lg modal-dialog">
+        <div class="modal-content" role="document">
+          <div class="modal-header-banner-wrap">
+            <div tabindex="-1" class="modal-header">
+              <button type="button" class=" close">
+                <span>×</span>
+              </button>
+              <h4 class="modal-title">
+                <div class="row">
+                  <div class="col-xs-12">Вы действительно хотите удалить?</div>
+                </div>
+              </h4>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="form-horizontal">
+              <div class="row">
+                <div class="col-xs-12">
+                  
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="modal-footer">
+            <div class="form-footer">
+              <div class="padding-horizontal row">
+                <div>                  
+                  <div class="pull-right form-actions form-footer-right">
+                    <button type="submit" class="btn btn-default btn btn-danger">
+                      <span>Удалить</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>         
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock modal_delete %}
+
+{% block modal %}
+<div id="modal-download-file" class="modal-level-1 hide-modal">
+  <div class="fade modal-backdrop in"></div>
+  <div id="Master_Import_Modal" role="dialog" tabindex="-1" class="fade import-modal modal-lg modal_192 in modal" style="display: block; padding-left: 17px;">
+    <form action="{% url 'extractapp:extracts_create' %}"  enctype="multipart/form-data" method="POST">
+      {% csrf_token %}  
+      <div class="import-modal modal-lg modal-dialog">
+        <div class="modal-content" role="document">
+          <div class="modal-header-banner-wrap">
+            <div tabindex="-1" class="modal-header">
+              <button type="button" class=" close">
+                <span>×</span>
+              </button>
+              <h4 class="modal-title">
+                <div class="row">
+                  <div class="col-xs-12">Загрузить выписку</div>
+                </div>
+              </h4>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="form-horizontal">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div>
+                    <div class="file-select-block" id="upload-container">
+                      <div class="content">
+                        <div class="content-block">
+                          <svg width="200" height="200" fill="none" viewBox="0 0 64 64" class="svg-icon " data-test-id="fileSelect--icon" name="ClouddraguploadIcon64" focusable="false" aria-hidden="true">
+                            <path class="primary-fill" fill-rule="evenodd" d="M35 20a8.99 8.99 0 00-7.526 4.063 1 1 0 01-1.213.377 6 6 0 00-8.192 6.468 1 1 0 01-.859 1.143A6.001 6.001 0 0018 44h5a1 1 0 110 2h-5a8 8 0 01-1.996-15.749 8 8 0 0110.254-7.928A10.982 10.982 0 0135 18c5.738 0 10.45 4.394 10.955 10H46a9 9 0 110 18h-4a1 1 0 110-2h4a7 7 0 10-.875-13.945A1 1 0 0144 29.056V29a9 9 0 00-9-9z" clip-rule="evenodd"></path>
+                            <path class="primary-fill" d="M32.707 31.293a1 1 0 00-1.414 0l-5 5a1 1 0 001.414 1.414L31 34.414V45a1 1 0 102 0V34.414l3.293 3.293a1 1 0 001.414-1.414l-5-5z"></path>
+                          </svg>
+                        </div>
+                        <div class="content-block">
+                          <label class="file-select-btn btn btn-success text-lowercase">Выберите файл
+                            <input class="file-input" type="file" name="file" id="file-input">
+                          </label>
+                          <p>или перетащите его сюда</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chosen-docs hide-modal">
+                      <div class="chosen-docs-icon">
+                        <svg width="64" height="64" fill="none" viewBox="0 0 64 64" class="svg-icon " name="FileonecIcon64" focusable="false" aria-hidden="true">
+                          <path class="primary-fill" d="M31 38.5c0-3.026 2.426-5.5 5.444-5.5.67 0 1.314.123 1.91.348a1 1 0 11-.708 1.87A3.41 3.41 0 0036.444 35C34.554 35 33 36.555 33 38.5s1.554 3.5 3.444 3.5c.425 0 .83-.078 1.202-.219a1.001 1.001 0 01.708 1.871 5.398 5.398 0 01-1.91.348C33.426 44 31 41.526 31 38.5zM29 34a1 1 0 00-1.707-.707l-3 3a1 1 0 001.414 1.414L27 36.414V43a1 1 0 002 0v-9z"></path>
+                          <path class="primary-fill" fill-rule="evenodd" d="M50.968 27.25c.021.08.032.163.032.25v20.864C51 50.914 48.95 53 46.4 53H17.6c-2.55 0-4.6-2.085-4.6-4.636V15.636C13 13.086 15.05 11 17.6 11H36c.291 0 .554.125.736.323l13.995 14.995a.996.996 0 01.237.932zM35 13H17.6c-1.427 0-2.6 1.17-2.6 2.636v32.728C15 49.829 16.174 51 17.6 51h28.8c1.427 0 2.6-1.17 2.6-2.636V28h-9a5 5 0 01-5-5V13zm2 10v-8.463L47.699 26H40a3 3 0 01-3-3z" clip-rule="evenodd"></path>
+                        </svg>
+                      </div>
+                      <div class="chosen-docs-data">
+                        <div class="chosen-heading">Вы выбрали документ</div>
+                        <div>
+                          <span></span>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-square link-gray pull-right" id="clear">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                          <path class="primary-fill" d="M11.41 10l6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L10 8.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42L8.59 10l-6.3 6.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l6.29-6.3 6.29 6.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42L11.41 10z"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-footer">
+              <div class="padding-horizontal row">
+                <div>
+                  <div class="col-xs-12">
+                    <div>
+                      <div class="content">
+                        <div class="content-block">
+                          <div class="center error hide-modal" style="text-align: center; color: red;">Вы выбрали неверный формат файла</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pull-right form-actions form-footer-right hide-modal">
+                    <button type="submit" class="btn btn-default btn btn-success">
+                      <span>Загрузить</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock modal %}
+
+{% block script %}
+<script>
+  $(document).ready(function() {
+    main.init();
+  });
+</script>
+{% endblock script %}

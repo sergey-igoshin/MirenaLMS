@@ -1,0 +1,68 @@
+{% load library_filter %}
+<tr class="pointer counterparty-item">
+  <td class="col-context-menu">
+      <div class="text-ellipsis">{{ item.date | date:"d.m.Y" }}</div>
+      <div class="text-muted small">Поступление</div>
+  </td>  
+  <td class="col-name-and-account-number">
+      <div class="text-ellipsis">{{ item.payer }}</div>
+      <div class="text-ellipsis text-muted small">{{ item.purpose_of_payment }}</div>
+  </td>
+  <td class="col-status">
+    <div class="text-ellipsis">Транзакция</div>
+    {{ item.transaction | text_posted }}
+  </td>
+</tr>
+
+<tr class="clicked" style="display: none;">
+  <td colspan="3" class="col-details detail-horizontal-indent-sm detail-vertical-indent-sm">    
+    <div class="list-quickview">
+      <form action="{% url 'extractapp:extracts_update' pk=item.pk %}" method="post" style>
+        {% csrf_token %}
+        <div class="row margin-bottom">
+          <div class="col-xs-6">
+            <dl class="dl-horizontal">
+              <dt>Плательщик</dt>
+              <dd class="bold-text">{{ item.payer }}</dd>
+              <dt>ИНН</dt>
+              <dd>{{ item.payer_of_inn }}</dd>
+              <dt>Номер</dt>
+              <dd>{{ item.number }}</dd>
+              <dt>Сумма</dt>
+              <dd class="summa">{{ item.amount }}<span>₽</span></dd>
+              <dt>Назначение платежа</dt>
+              <dd>{{ item.purpose_of_payment }}</dd>
+            </dl>
+          </div>
+
+          {% for incom in odd_incom %}
+          <div class="col-xs-3">
+            <dl class="dl-horizontal">
+              {% for i in incom %}                
+              <dt>{{ i.title }}</dt>
+              <dd>
+                <div class="table-cell">           
+                  <input placeholder="" name="{{ i.pk }}" class="form-control" type="text" value="{{ item.data | cut:i.pk }}" >
+                </div>
+              </dd>                          
+              {% endfor %}
+            </dl> 
+          </div>
+          {% endfor %}     
+
+        </div>
+        <div class="hr-wrapper">
+          <hr>
+        </div>
+        <div style="text-align: right;">
+          <button type="submit" class="btn btn-sm btn-default margin-left-2" id="save" title="Сохранить" >Сохранить</button> 
+        </div>
+               
+      </form>
+
+      <!-- <div class="" style="margin-left: 108px;">
+        <button type="button" role="{% url 'extractapp:extracts_delete' pk=item.pk %}" class="btn btn-sm btn-default margin-left-2" id="delete" title="Удалить" >Удалить</button>  
+      </div>      -->
+    </div>
+  </td>
+</tr>

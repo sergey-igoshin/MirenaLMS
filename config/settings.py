@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     "social_django",
     "my_filters",
     "mainapp",
-    "todoapp",
+    "settingapp",
+    "extractapp",
     "authapp",
     "crispy_forms",
 ]
@@ -61,6 +62,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "context_processors.example.simple_context_processor",
+                "context_processors.example.menu_context_processor",
                 "social_django.context_processors.backends",
                 "social_django.context_processors.login_redirect",
             ],
@@ -176,3 +178,24 @@ LOGGING = {
         },
     },
 }
+
+DICTIONARY_PARSE = {
+    "СекцияДокумент": "document_section",
+    "Номер": "number",
+    "Сумма": "amount",
+    "ПлательщикСчет": "payer_payment_account",
+    "ПлательщикИНН": "payer_of_inn",
+    "ПолучательСчет": "recipient_payment_account",
+    "ПолучательИНН": "recipient_of_inn",
+    "НазначениеПлатежа": "purpose_of_payment",
+    "ДатаПоступило": "date",
+    "ДатаСписано": "date",
+    "Плательщик": "payer",
+    "Плательщик1": "payer",
+    "Получатель": "recipient",
+    "Получатель1": "recipient",
+}
+
+TITLE_PARSE = {"Отправитель": "bank", "КонецРасчСчет": "end"}
+
+TITLE_FILE = "1CClientBankExchange"
