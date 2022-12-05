@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
+    <link rel="stylesheet" href="{% static 'css/p.0.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/n.0.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/f.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/m.0.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/r.css' %}" >
+    <link rel="stylesheet" href="https://cdntilda.ru/font/nfh4zft.css" >    
+    <title>Финансовый отчет</title>
+  </head>
+  <body>
+    <div class="main-container " id="container">
+      <div class="page-container">
+        <header class="header-general clearfix new-header-with-sideoverlay" id="header-general">
+          <div class="left-side">
+            <div class="logo-block">
+              <div class="hamburger-component-container">
+                <div class="hamburger-btn burger-close-ignore-onclickoutside">
+                  <div class="hamburger-menu-icon">
+                    <div class="hamburger-menu-icon-lines">
+                      <i class="hamburger-menu-icon-line"></i>
+                    </div>
+                    <span class="hamburger-menu-icon-text">меню</span>
+                  </div>
+                </div>
+              </div>
+              <div class="logo">
+                <a class="screenreader-logo null" href="/"></a>
+                <a class="null" href="/">
+                  <img src="{% static 'img/logo.svg' %}" alt="">                  
+                </a>
+              </div>
+            </div>
+            <div class="header-search"></div>
+          </div>
+          <div class="right-side">
+            <button role="button" type="button" aria-label="Мой профиль и организация ООО &quot;МИР ТЕХНОЛОГИЙ&quot;" class=" header-button hoverable sideoverlay-ignore-onclickoutside">
+              <div class="header-profile-button">
+                <div class="right-block">
+                  <div class="text-ellipsis person-name">Игошин Сергей Олегович</div>
+                  <div class="text-ellipsis org-name">ООО "МИР ТЕХНОЛОГИЙ"</div>
+                </div>
+              </div>
+            </button>
+            <button title="Управление учётными записями" type="button" class=" header-button hoverable sideoverlay-ignore-onclickoutside only-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 20 20" class="svg-icon " name="ChangeaccountIcon20" focusable="false" aria-hidden="true">
+                <path class="product-fill" fill-rule="evenodd" d="M3.5 5.5a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM8 3a2.5 2.5 0 100 5 2.5 2.5 0 000-5z" clip-rule="evenodd"></path>
+                <path class="product-fill" fill-rule="evenodd" d="M1.891 19h12.218c.824 0 1.598-.564 1.762-1.431.085-.453.129-.91.129-1.361 0-2.245-1.034-4.358-2.808-5.803h-.001a1.826 1.826 0 00-2.312.015 4.59 4.59 0 01-2.94 1.05 4.596 4.596 0 01-2.896-1.014l-.002-.002a1.827 1.827 0 00-2.31.015l-.001.001C1.005 11.912 0 14 0 16.208c0 .451.044.909.13 1.36C.292 18.432 1.064 19 1.89 19zm6.049-5.53c1.496 0 2.947-.5 4.103-1.418C13.298 13.126 14 14.635 14 16.207c0 .259-.02.525-.06.792H2.06A5.293 5.293 0 012 16.208c0-1.545.682-3.036 1.9-4.107a6.603 6.603 0 004.04 1.369z" clip-rule="evenodd"></path>
+                <path class="product-fill" d="M17.695 10.852a1 1 0 10-1.39 1.438C17.395 13.343 18 14.747 18 16.208c0 .322-.031.655-.094.988a1 1 0 101.965.373c.085-.453.129-.91.129-1.361 0-2.023-.84-3.94-2.305-5.356zM14.142 1.046a1 1 0 00-.284 1.98 2.5 2.5 0 01.713 4.734 1 1 0 00.858 1.806 4.5 4.5 0 00-1.287-8.52z"></path>
+              </svg>
+            </button>
+            <button title="Новые уведомления" type="button" class=" header-button sideoverlay-button hoverable sideoverlay-ignore-onclickoutside only-icon">
+              <svg width="32" height="32" fill="none" viewBox="0 0 32 32" class="svg-icon " name="MailbellPrdIcon32" focusable="false" aria-hidden="true">
+                <path class="product-fill" fill-rule="evenodd" d="M20.767 24.134a1 1 0 011.366.365 1 1 0 001.734 0 1 1 0 011.731 1.002 3 3 0 01-5.196 0 1 1 0 01.365-1.367zM0 8a2 2 0 012-2h17a1 1 0 01.652 1.758l-8.324 7.399a2 2 0 01-2.657 0L2 9.227V19h10a1 1 0 110 2H2a2 2 0 01-2-2V8zm3.63 0L10 13.662 16.37 8H3.63z" clip-rule="evenodd"></path>
+                <path class="product-fill" fill-rule="evenodd" d="M24 8a1 1 0 10-2 0v1.07A7.002 7.002 0 0016 16v3.586c0 .51-.162 1.005-.458 1.414H15a1 1 0 100 2h16a1 1 0 100-2h-.542A2.414 2.414 0 0130 19.586V16a7.002 7.002 0 00-6-6.93V8zm4 11.586c0 .485.08.963.233 1.414H17.767c.153-.451.233-.929.233-1.414V16a5 5 0 0110 0v3.586z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="new-notifications-badge"></span>
+            </button>
+            <button type="button" class=" header-button header-exit-button hoverable sideoverlay-ignore-onclickoutside only-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 20 20" class="svg-icon " name="ExitIcon20" focusable="false" aria-hidden="true">
+                <path class="primary-fill" d="M1 4a3 3 0 013-3h7a3 3 0 013 3v1.5a1 1 0 11-2 0V4a1 1 0 00-1-1H4a1 1 0 00-1 1v12a1 1 0 001 1h7a1 1 0 001-1v-1a1 1 0 112 0v1a3 3 0 01-3 3H4a3 3 0 01-3-3V4z"></path>
+                <path class="primary-fill" d="M16.504 5.632a1 1 0 011.364.372l1.99 3.483a.995.995 0 010 1.028l-1.99 3.481a1 1 0 01-1.736-.992L17.277 11H10a1 1 0 110-2h7.277l-1.145-2.004a1 1 0 01.372-1.364z"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="layout-left-container closed">
+          <nav aria-label="Меню" id="row-main-nav">
+            <div class="primary-menu">
+              <div class="primary-menu-container">
+                <div class="first-level-container">
+
+                  <div class="create-block menu-items-container hoverable active">
+                    <ul class="main-nav nav menu-items-list">
+                      {% for u in menu_static %}
+                      {% include 'includes/tabs.html' %}                      
+                      {% endfor %}
+                    </ul>
+                    <div class="divider"></div>
+                  </div>
+
+                  <div class="ScrollbarsCustom trackYVisible trackXVisible scroll-container bottom-overlap" style="position: relative; display: flex;">
+                    <div class="wrapper" style="flex-grow: 1; margin-right: 0px; position: relative; overflow: hidden;">
+                      <div class="top-shadow"></div>
+                      <div class="content" style="position: absolute; inset: 0px; overflow: hidden scroll; margin-right: -17px;">
+                        <div class="rko-menu-block menu-items-container">
+                          <ul class="main-nav nav menu-items-list">
+                            {% for u in menu_scroll %}
+                            {% include 'includes/tabs.html' %} 
+                            {% endfor %}
+                          </ul>
+                        </div>
+
+                        <div class="enter-edit-mode-container">
+                          <div class="enter-edit-mode-container-content">
+                            <button type="button" class=" enter-edit-mode-button-toggler">
+                              <div class="enter-edit-mode-button-toggler-content">
+                                <svg width="20" height="20" viewBox="0 0 20 20" class="svg-icon caret-svg-icon">
+                                  <path fill-rule="nonzero" d="M15.191 7.28a1.108 1.108 0 0 0-1.471 0l-3.746 3.4-3.694-3.4a1.108 1.108 0 0 0-1.471 0 .924.924 0 0 0-.309.681c0 .256.111.502.309.682l4.424 4.073c.196.182.463.284.74.284.28 0 .546-.102.742-.284l4.476-4.073a.924.924 0 0 0 .309-.682.924.924 0 0 0-.309-.682z"></path>
+                                </svg>
+                              </div>
+                            </button>
+                            <ul class="menu-items-container" role="none" aria-hidden="true">
+                              <li class="menu-item-container">
+                                <button type="button" aria-hidden="true" class=" menu-button hoverable enter-edit-mode-button">
+                                  <div class="menu-button-content">
+                                    <span class="icon-container">
+                                      <svg width="20" height="20" viewBox="0 0 20 20" version="1.1" class="svg-icon" name="SettingsIconSBBOL3">
+                                        <path fill="#AAB2B7" opacity=".8" fill-rule="nonzero" d="M19.32 7.55l-1.89-.63.89-1.78A1 1 0 0 0 18.13 4L16 1.87a1 1 0 0 0-1.15-.19l-1.78.89-.63-1.89A1 1 0 0 0 11.5 0h-3a1 1 0 0 0-.95.68l-.63 1.89-1.78-.89A1 1 0 0 0 4 1.87L1.87 4a1 1 0 0 0-.19 1.15l.89 1.78-1.89.63A1 1 0 0 0 0 8.5v3a1 1 0 0 0 .68.95l1.89.63-.89 1.78A1 1 0 0 0 1.87 16L4 18.13a1 1 0 0 0 1.15.19l1.78-.89.63 1.89a1 1 0 0 0 .95.68h3a1 1 0 0 0 .95-.68l.63-1.89 1.78.89a1 1 0 0 0 1.13-.19L18.13 16a1 1 0 0 0 .19-1.15l-.89-1.78 1.89-.63a1 1 0 0 0 .68-.94v-3a1 1 0 0 0-.68-.95zM18 10.78l-1.2.4A2 2 0 0 0 15.64 14l.57 1.14-1.1 1.1-1.11-.6a2 2 0 0 0-2.79 1.16l-.4 1.2H9.22l-.4-1.2A2 2 0 0 0 6 15.64l-1.14.57-1.1-1.1.6-1.11a2 2 0 0 0-1.16-2.82l-1.2-.4V9.22l1.2-.4A2 2 0 0 0 4.36 6l-.57-1.11 1.1-1.1L6 4.36A2 2 0 0 0 8.82 3.2l.4-1.2h1.56l.4 1.2A2 2 0 0 0 14 4.36l1.14-.57 1.1 1.1-.6 1.11a2 2 0 0 0 1.16 2.79l1.2.4v1.59zM10 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path>
+                                      </svg>
+                                    </span>
+                                    <span class="label-container">Настроить меню</span>
+                                  </div>
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="bottom-shadow"></div>
+                      <div class="novelty-button">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 20 20" class="svg-icon ">
+                          <path class="primary-fill" d="M4.294 10.713l4.995 5a1 1 0 0 0 .33.21c.243.1.516.1.76 0a1 1 0 0 0 .33-.21l4.995-5a1.005 1.005 0 0 0-1.419-1.42l-3.287 3.3v-7.59a1 1 0 1 0-1.998 0v7.59l-3.288-3.3a.999.999 0 0 0-1.418 0 1 1 0 0 0 0 1.42z"></path>
+                        </svg>Новое
+                      </div>
+                    </div>
+                    <div class="track trackY" style="position: absolute; overflow: hidden; border-radius: 4px; background: rgba(0, 0, 0, 0.1); user-select: none; width: 8px; height: calc(100% - 16px); top: 8px; right: 0px;">
+                      <div class="thumb thumbY" style="cursor: pointer; border-radius: 4px; background: rgba(0, 0, 0, 0.4); width: 100%; transform: translateY(0px); height: 30px;"></div>
+                    </div>
+                  </div>
+                  <div class="shop-menu-item menu-items-container">
+                    <ul class="main-nav nav" role="none">
+                      <li class="menu-item-container">
+                        <button type="button" aria-label="Все продукты и услуги" class=" menu-button hoverable ">
+                          <div class="menu-button-content">
+                            <span class="icon-container">
+                              <svg width="20" height="20" fill="none" viewBox="0 0 20 20" class="svg-icon " name="ShopPrdxIcon20" focusable="false" aria-hidden="true">
+                                <path class="marketplace-fill" fill-rule="evenodd" d="M19.167 4.005L4.253 3.03 3.96 1.766a1 1 0 00-.528-.67L1.447.106a1 1 0 00-.893 1.79l1.565.786 2.894 11.54a1 1 0 00.975.776h11.006a1 1 0 100-2.001H6.785l-.231-1h10.942c.552 0 1.082-.44 1.183-.983l1.302-5.971a.856.856 0 00-.814-1.038zm-1.386 1.918l-.947 4.072H6.091l-1.37-4.932 13.06.86z" clip-rule="evenodd"></path>
+                                <path class="marketplace-fill" d="M5 17.999a2.001 2.001 0 104.002 0 2.001 2.001 0 00-4.002 0zM13 17.999a2.001 2.001 0 104.002 0 2.001 2.001 0 00-4.002 0z"></path>
+                              </svg>
+                            </span>
+                            <div class="label-container">
+                              <div class="label-container-title">Все продукты и услуги</div>
+                              <div class="label-container-subtitle">Подключение и управление</div>
+                            </div>
+                          </div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+    {% block modal %}
+    {% endblock modal %}
+
+    {% block modal_delete %}
+    {% endblock modal_delete %}
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/script.5.js' %}"></script>
+    {% block script %}
+    {% endblock script %}
+  </body>  
+</html>

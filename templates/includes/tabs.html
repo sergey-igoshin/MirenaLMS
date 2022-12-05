@@ -1,0 +1,15 @@
+<a href="{{ u.url }}">
+    <li class="menu-item-container">                                
+        <button type="button" class="menu-button hoverable {% if u.url == page %} active {% endif %}">
+            <div class="menu-button-content">
+                <span class="icon-container">                                 
+                    {{ u.icon | safe }}
+                    {% if u.badge %}
+                    <span class="badge count-badge">{{u.badge}}</span>
+                    {% endif %}                                     
+                </span>
+                <span class="label-container">{{ u.title }}</span>
+            </div>
+        </button>
+    </li>
+</a>

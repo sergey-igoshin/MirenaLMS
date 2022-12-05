@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     "social_django",
     "my_filters",
     "mainapp",
-    "todoapp",
+    "settingapp",
+    "extractapp",
     "authapp",
     "crispy_forms",
 ]
@@ -61,6 +62,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "context_processors.example.simple_context_processor",
+                "context_processors.example.menu_context_processor",
                 "social_django.context_processors.backends",
                 "social_django.context_processors.login_redirect",
             ],
@@ -150,3 +152,50 @@ SOCIAL_AUTH_GITHUB_KEY = "c4e1986f5dc86fbf6749"
 SOCIAL_AUTH_GITHUB_SECRET = "3527385fee15f6d218fad13969ae26b3822ef7a8"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+LOG_FILE = BASE_DIR / "var" / "log" / "main_log.log"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "console": {"format": "[%(asctime)s] %(levelname)s %(name)s (%(lineno)d) %(message)s"},
+    },
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": LOG_FILE,
+            "formatter": "console",
+        },
+        "console": {"class": "logging.StreamHandler", "formatter": "console"},
+    },
+    "loggers": {
+        "django": {"level": "INFO", "handlers": ["console"]},
+        "mainapp": {
+            "level": "DEBUG",
+            "handlers": ["file"],
+        },
+    },
+}
+
+DICTIONARY_PARSE = {
+    "СекцияДокумент": "document_section",
+    "Номер": "number",
+    "Сумма": "amount",
+    "ПлательщикСчет": "payer_payment_account",
+    "ПлательщикИНН": "payer_of_inn",
+    "ПолучательСчет": "recipient_payment_account",
+    "ПолучательИНН": "recipient_of_inn",
+    "НазначениеПлатежа": "purpose_of_payment",
+    "ДатаПоступило": "date",
+    "ДатаСписано": "date",
+    "Плательщик": "payer",
+    "Плательщик1": "payer",
+    "Получатель": "recipient",
+    "Получатель1": "recipient",
+}
+
+TITLE_PARSE = {"Отправитель": "bank", "КонецРасчСчет": "end"}
+
+TITLE_FILE = "1CClientBankExchange"
