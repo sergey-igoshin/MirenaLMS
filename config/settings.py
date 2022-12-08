@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "extractapp",
     "authapp",
     "crispy_forms",
+    "chartjs",
 ]
 
 MIDDLEWARE = [

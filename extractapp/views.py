@@ -26,7 +26,7 @@ from settingapp.utils import ParseFile, Utilites
 class ExtractsListView(PermissionRequiredMixin, ListView, Utilites):
     model = extractapp_models.Extracts
     permission_required = ("extractapp.add_extracts",)
-    # paginate_by = 5
+    paginate_by = 10
 
     def get_queryset(self, *args, **kwargs):
         return super().get_queryset().filter(deleted=False)

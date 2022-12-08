@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="page-scroller page-extract">
   <div class="page-wrapper" role="main">
     <div class="page-two-column counterparty-dictionary">
-      <div class="panel panel-page page-component page-left-column">
+      <div class="panel panel-page page-component page-left-column" style="background: #f2f4f7;">
         <div class="counterparties-list-page rur-сounterparty-page">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xs-12" style="">
               <div class="filter-panel">
                 <div class="row display-table">
                   <!-- <div class="col-xs-5 table-cell">
@@ -19,26 +19,98 @@
                       </div>
                       <input placeholder="Поиск контрагента по реквизитам или ИНН" class="form-control" type="text" value="">
                     </div>
-                  </div> -->
+                  </div>
                   <div class="col-xs-12 table-cell">
                     <button type="button" class="btn btn-success btn-md margin-left" style="padding: 5px 20px;float: right;">Добавить категорию</button>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="table-wrapper">
+          <div class="row widgets-container page-container-style ">
+            <div data-tutorial-id="tutorial-BfmChartWidget" class="widget-component " style="
+              animation: widgetComponentAnimation forwards 1s;
+              padding: 16px 20px 24px;
+              margin-bottom: 24px;
+              background-color: #fff;
+              border: 1px solid #d0d7dd;
+              -webkit-border-radius: 16px;
+              border-radius: 16px;
+              ">
+              <div class="" data-analytics-service="NBS-BFM" data-analytics-component="BFM_Widget" data-analytics-tracking="STD">
+                <section class="bfm-chart-widget" data-test-id="BFM.BfmChartWidgetComponent--section">
+                  <div class="main-widget-title">
+                    <div class="title-item" style="display: flex;">
+                      <div class="title-main" data-test-id="BFM.BfmChartWidgetComponent--title">Доход</div>
+                      <div class="title-help-box">
+                        <div class="popover-wrap with-help-icon" data-test-id="help-box">&#xFEFF;
+                          <button name="simpleButton" type="button" aria-label="Подсказка" class="btn btn-icon popover-target" data-test-id="--button" aria-describedby="boxes_153" style="">
+                            <svg width="16" height="16" fill="none" viewBox="0 0 16 16" class="svg-icon help-box-icon" name="HintIcon16" focusable="false" aria-hidden="true">
+                              <path class="primary-fill" fill-rule="evenodd" d="M8 15A7 7 0 118 1a7 7 0 010 14zm-.621-4.121a1.391 1.391 0 00-.105.131.664.664 0 00-.079.158.56.56 0 00-.053.157 1.191 1.191 0 000 .175.735.735 0 00.07.332c.08.22.253.393.473.473a.823.823 0 00.665 0 .788.788 0 00.473-.473.875.875 0 00.052-.332.875.875 0 00-1.496-.621zM5.725 4.938A2.625 2.625 0 018 3.625a2.625 2.625 0 01.875 5.092v.158a.875.875 0 11-1.75 0V8c0-.483.392-.875.875-.875a.875.875 0 100-1.75.875.875 0 00-.761.438.875.875 0 11-1.514-.875z" clip-rule="evenodd"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="title-item">
+                      <a class="link-outer link-to-product active" data-test-id="undefined--link" data-analytics-action="click" data-analytics-label="link-not-used" href="#/">Перейти в сервис «Бизнес-аналитика»</a>
+                    </div> -->
+                  </div>
+                  <div class="panel-body">
+
+                    <canvas id="myChart" width="100" height="20" data-url="{% url 'settingapp:line_chart_json' %}"></canvas>
+                    
+                  </div>
+                </section>
+              </div>
+            </div>
+
             
-
-                {% for item in object_list %}               
-                
-                {{ item.title }}             
-
-                {% endfor %}              
-
-              
           </div>
+
+          <div class="row widgets-container page-container-style ">
+            <div data-tutorial-id="tutorial-BfmChartWidget" class="widget-component " style="
+              animation: widgetComponentAnimation forwards 1s;
+              padding: 16px 20px 24px;
+              margin-bottom: 24px;
+              background-color: #fff;
+              border: 1px solid #d0d7dd;
+              -webkit-border-radius: 16px;
+              border-radius: 16px;
+              ">
+              <div class="" data-analytics-service="NBS-BFM" data-analytics-component="BFM_Widget" data-analytics-tracking="STD">
+                <section class="bfm-chart-widget" data-test-id="BFM.BfmChartWidgetComponent--section">
+                  <div class="main-widget-title">
+                    <div class="title-item" style="display: flex;">
+                      <div class="title-main" data-test-id="BFM.BfmChartWidgetComponent--title">Расход</div>
+                      <div class="title-help-box">
+                        <div class="popover-wrap with-help-icon" data-test-id="help-box">&#xFEFF;
+                          <button name="simpleButton" type="button" aria-label="Подсказка" class="btn btn-icon popover-target" data-test-id="--button" aria-describedby="boxes_153" style="">
+                            <svg width="16" height="16" fill="none" viewBox="0 0 16 16" class="svg-icon help-box-icon" name="HintIcon16" focusable="false" aria-hidden="true">
+                              <path class="primary-fill" fill-rule="evenodd" d="M8 15A7 7 0 118 1a7 7 0 010 14zm-.621-4.121a1.391 1.391 0 00-.105.131.664.664 0 00-.079.158.56.56 0 00-.053.157 1.191 1.191 0 000 .175.735.735 0 00.07.332c.08.22.253.393.473.473a.823.823 0 00.665 0 .788.788 0 00.473-.473.875.875 0 00.052-.332.875.875 0 00-1.496-.621zM5.725 4.938A2.625 2.625 0 018 3.625a2.625 2.625 0 01.875 5.092v.158a.875.875 0 11-1.75 0V8c0-.483.392-.875.875-.875a.875.875 0 100-1.75.875.875 0 00-.761.438.875.875 0 11-1.514-.875z" clip-rule="evenodd"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="title-item">
+                      <a class="link-outer link-to-product active" data-test-id="undefined--link" data-analytics-action="click" data-analytics-label="link-not-used" href="#/">Перейти в сервис «Бизнес-аналитика»</a>
+                    </div> -->
+                  </div>
+                  <div class="panel-body">
+
+                    <canvas id="myChart2" width="100" height="20" data-url="{% url 'settingapp:line_chart_json' %}"></canvas>
+                    
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            
+          </div>
+
+
         </div>
       </div>
     </div>
@@ -140,11 +212,71 @@
 {% endblock modal %}
 
 {% block script %}
+<script src="{% static 'js/chart.js' %}"></script>
+<!-- <script src="{% static 'js/Chart.min.js' %}"></script> -->
 <script>
-  $(document).ready(function() {
-    setTimeout(function(){
-      main.init();
-    }, 1500);
-  });
+  const ctx = $("#myChart").get(0)
+  const ctx2 = $("#myChart2").get(0)
+  month = null;
+  type = 'bar'
+  //$.get(ctx.dataset.url, function(data) {  
+  //  const ctx = $("#myChart").get(0) //.getContext("2d");
+  
+  $.get(
+    "{% url 'settingapp:line_chart_json' %}", 
+    {
+      month: month,
+      action: 'incom',
+    }, 
+    function(data) {    
+      Chart.defaults.font.size = 14;
+      Chart.defaults.font.family = 'futura-pt';
+      //Chart.defaults.global.elements.rectangle.borderWidth = 1;
+      
+      const myLineChart = new Chart(
+        ctx, {
+          type: type, 
+          data: data,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            },
+            borderWidth: 2,
+          }
+        }          
+      );
+    }
+  ); 
+
+  $.get(
+    "{% url 'settingapp:line_chart_json' %}", 
+    {
+      month: month,
+      action: 'expenditure'
+    }, 
+    function(data) {    
+      Chart.defaults.font.size = 14;
+      Chart.defaults.font.family = 'futura-pt';
+      const myLineChart = new Chart(
+        ctx2, {
+          type: "line",
+          data: data,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            },
+            borderWidth: 1,
+          }
+        }          
+      );
+    }
+  ); 
+  
+  
 </script>
+
 {% endblock script %}
