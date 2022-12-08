@@ -1,16 +1,15 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+# class ExtractsOddRecipient(models.Model):
+#     title = models.CharField(max_length=256, verbose_name="Title")  # Название
 
-class ExtractsOddRecipient(models.Model):
-    title = models.CharField(max_length=256, verbose_name="Title")  # Название
+#     def __str__(self) -> str:
+#         return f"{self.pk} {self.title}"
 
-    def __str__(self) -> str:
-        return f"{self.pk} {self.title}"
-
-    class Meta:
-        verbose_name = _("Extracts Odd Recipient")
-        verbose_name_plural = _("Extracts Odd Recipient")
+#     class Meta:
+#         verbose_name = _("Extracts Odd Recipient")
+#         verbose_name_plural = _("Extracts Odd Recipient")
 
 
 class Menu(models.Model):
